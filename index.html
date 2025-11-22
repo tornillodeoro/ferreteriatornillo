@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Tornillo de Oro | Ferretería de Prestigio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold-primary': '#FFC72C', // Pantone 123 C aproximado
+                        'gold-dark': '#e0a800',
+                        'steel-gray': '#75787B', // Pantone Cool Gray 9 C aproximado
+                        'steel-dark': '#2d3748',
+                        'rich-black': '#1a1a1a',
+                    },
+                    fontFamily: {
+                        'serif': ['Cinzel', 'serif'],
+                        'sans': ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados para efectos de lujo */
+        .gold-gradient-text {
+            background: linear-gradient(to right, #FFC72C, #FDB931, #FFC72C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 199, 44, 0.2);
+            border-color: #FFC72C;
+        }
+
+        .tornillo-icon {
+            animation: spin-slow 10s linear infinite;
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-rich-black text-gray-300 font-sans">
+
+    <!-- Header / Navbar -->
+    <nav class="bg-rich-black/95 backdrop-blur-md border-b border-gray-800 fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <i class="fa-solid fa-screw text-gold-primary text-3xl tornillo-icon group-hover:text-white transition-colors"></i>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-serif font-bold text-white tracking-wider">EL TORNILLO</span>
+                    <span class="text-sm text-gold-primary tracking-[0.3em] uppercase">De Oro</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#inicio" class="text-gray-300 hover:text-gold-primary transition-colors uppercase text-sm tracking-widest">Inicio</a>
+                <a href="#historia" class="text-gray-300 hover:text-gold-primary transition-colors uppercase text-sm tracking-widest">Historia</a>
+                <a href="#catalogo" class="text-gray-300 hover:text-gold-primary transition-colors uppercase text-sm tracking-widest">Catálogo</a>
+                <a href="#servicios" class="text-gray-300 hover:text-gold-primary transition-colors uppercase text-sm tracking-widest">Servicios</a>
+                <a href="#contacto" class="bg-gold-primary text-rich-black px-5 py-2 rounded-sm font-bold hover:bg-white transition-colors uppercase text-xs tracking-widest">
+                    Contacto
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gold-primary text-2xl focus:outline-none" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-rich-black border-t border-gray-800">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#inicio" class="text-white hover:text-gold-primary">Inicio</a>
+                <a href="#historia" class="text-white hover:text-gold-primary">Historia</a>
+                <a href="#catalogo" class="text-white hover:text-gold-primary">Catálogo</a>
+                <a href="#servicios" class="text-white hover:text-gold-primary">Servicios</a>
+                <a href="#contacto" class="text-gold-primary font-bold">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="hero-bg h-screen flex items-center justify-center relative">
+        <div class="container mx-auto px-6 text-center z-10">
+            <div class="inline-block border border-gold-primary/50 px-4 py-1 mb-6 rounded-full bg-black/30 backdrop-blur-sm">
+                <span class="text-gold-primary text-xs uppercase tracking-[0.2em]">Desde 1985 • Torreón, Coahuila</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                Si no lo tenemos, <br>
+                <span class="gold-gradient-text">no existe.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 font-light mb-10 max-w-3xl mx-auto italic">
+                "Y si no existe, te lo conseguimos."
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#catalogo" class="bg-gold-primary text-rich-black px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all transform hover:-translate-y-1 shadow-lg shadow-gold-primary/20">
+                    Ver Catálogo
+                </a>
+                <a href="#contacto" class="border border-white text-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-white hover:text-rich-black transition-all transform hover:-translate-y-1">
+                    Visítanos Hoy
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#nosotros" class="text-white/50 hover:text-gold-primary transition-colors">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- About / Values Section -->
+    <section id="nosotros" class="py-24 bg-rich-black">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-gold-primary uppercase text-sm tracking-[0.3em] mb-2">Nuestra Filosofía</h2>
+                    <h3 class="text-4xl font-serif font-bold text-white mb-6">Más que una ferretería,<br>una tradición familiar.</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Fundada por <strong>Don Manuel Fernández</strong> hace 40 años como un pequeño puesto de tornillos, hoy somos referentes en la región bajo la dirección del Ing. Ricardo Fernández.
+                    </p>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        En <span class="text-gold-primary italic">El Tornillo de Oro</span>, nos regimos por una calidad inquebrantable. Solo manejamos marcas que nosotros mismos usaríamos. Si es de mala calidad, no está en nuestros estantes.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-gray-800 p-3 rounded text-gold-primary">
+                                <i class="fa-solid fa-scale-balanced text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Honestidad</h4>
+                                <p class="text-sm text-gray-500">Precios justos y transparentes. Nunca te venderemos algo que no necesitas.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-gray-800 p-3 rounded text-gold-primary">
+                                <i class="fa-solid fa-infinity text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Inventario Infinito</h4>
+                                <p class="text-sm text-gray-500">Hacemos lo imposible por tener absolutamente todo para tu proyecto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-gold-primary"></div>
+                    <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Interior Ferretería" class="w-full h-auto shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 rounded-sm">
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-gold-primary"></div>
+                    
+                    <!-- Funny/Personal detail card -->
+                    <div class="absolute -bottom-10 -left-10 bg-gray-800 p-6 shadow-xl hidden lg:block max-w-xs border border-gray-700">
+                        <div class="flex items-center gap-4 mb-2">
+                            <i class="fa-solid fa-paw text-gold-primary"></i>
+                            <h4 class="font-bold text-white">Conoce a Tornillín III</h4>
+                        </div>
+                        <p class="text-xs text-gray-400">Nuestra mascota y jefe de seguridad en el patio trasero. ¡Salúdalo si vienes por carga pesada!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Preview Section -->
+    <section id="catalogo" class="py-24 bg-gradient-to-b from-rich-black to-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold-primary uppercase text-xs tracking-[0.3em]">Productos Destacados</span>
+                <h2 class="text-4xl font-serif font-bold text-white mt-2">Calidad Profesional</h2>
+            </div>
+
+            <!-- Filter Categories -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="px-6 py-2 bg-gold-primary text-rich-black font-bold rounded-full hover:bg-white transition-colors filter-btn active" data-filter="all">Todo</button>
+                <button class="px-6 py-2 border border-gray-600 text-gray-300 rounded-full hover:border-gold-primary hover:text-gold-primary transition-colors filter-btn" data-filter="herramientas">Herramientas</button>
+                <button class="px-6 py-2 border border-gray-600 text-gray-300 rounded-full hover:border-gold-primary hover:text-gold-primary transition-colors filter-btn" data-filter="construccion">Construcción</button>
+                <button class="px-6 py-2 border border-gray-600 text-gray-300 rounded-full hover:border-gold-primary hover:text-gold-primary transition-colors filter-btn" data-filter="plomeria">Plomería</button>
+                <button class="px-6 py-2 border border-gray-600 text-gray-300 rounded-full hover:border-gold-primary hover:text-gold-primary transition-colors filter-btn" data-filter="electrico">Eléctrico</button>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="product-grid">
+                
+                <!-- Item 1 -->
+                <div class="bg-gray-800 border border-gray-700 p-6 relative group card-hover category-herramientas">
+                    <div class="absolute top-4 right-4 bg-gold-primary text-black text-xs font-bold px-2 py-1 rounded">TRUPER</div>
+                    <div class="h-40 flex items-center justify-center mb-4 bg-gray-900 rounded p-4">
+                        <i class="fa-solid fa-hammer text-6xl text-gray-600 group-hover:text-gold-primary transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Martillo de uña 16oz</h3>
+                    <p class="text-gray-500 text-sm mb-4">Herramienta manual indispensable.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold-primary font-bold text-xl">$220.00</span>
+                        <button class="text-gray-400 hover:text-white"><i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-gray-800 border border-gray-700 p-6 relative group card-hover category-herramientas">
+                    <div class="absolute top-4 right-4 bg-gold-primary text-black text-xs font-bold px-2 py-1 rounded">BOSCH</div>
+                    <div class="h-40 flex items-center justify-center mb-4 bg-gray-900 rounded p-4">
+                        <i class="fa-solid fa-fan text-6xl text-gray-600 group-hover:text-gold-primary transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Taladro Rotomartillo 1/2"</h3>
+                    <p class="text-gray-500 text-sm mb-4">Potencia industrial.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold-primary font-bold text-xl">$1,900.00</span>
+                        <button class="text-gray-400 hover:text-white"><i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-gray-800 border border-gray-700 p-6 relative group card-hover category-plomeria">
+                    <div class="absolute top-4 right-4 bg-gold-primary text-black text-xs font-bold px-2 py-1 rounded">ROTOPLAS</div>
+                    <div class="h-40 flex items-center justify-center mb-4 bg-gray-900 rounded p-4">
+                        <i class="fa-solid fa-layer-group text-6xl text-gray-600 group-hover:text-gold-primary transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Tinaco 1100L</h3>
+                    <p class="text-gray-500 text-sm mb-4">Tricapa, máxima durabilidad.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold-primary font-bold text-xl">$2,400.00</span>
+                        <button class="text-gray-400 hover:text-white"><i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="bg-gray-800 border border-gray-700 p-6 relative group card-hover category-construccion">
+                    <div class="absolute top-4 right-4 bg-gold-primary text-black text-xs font-bold px-2 py-1 rounded">CEMEX</div>
+                    <div class="h-40 flex items-center justify-center mb-4 bg-gray-900 rounded p-4">
+                        <i class="fa-solid fa-cubes text-6xl text-gray-600 group-hover:text-gold-primary transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Cemento Gris 50kg</h3>
+                    <p class="text-gray-500 text-sm mb-4">Resistencia extra.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold-primary font-bold text-xl">$280.00</span>
+                        <button class="text-gray-400 hover:text-white"><i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                 <!-- Item 5 -->
+                 <div class="bg-gray-800 border border-gray-700 p-6 relative group card-hover category-construccion">
+                    <div class="absolute top-4 right-4 bg-gold-primary text-black text-xs font-bold px-2 py-1 rounded">COMEX</div>
+                    <div class="h-40 flex items-center justify-center mb-4 bg-gray-900 rounded p-4">
+                        <i class="fa-solid fa-fill-drip text-6xl text-gray-600 group-hover:text-gold-primary transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Pintura Vinílica (Galón)</h3>
+                    <p class="text-gray-500 text-sm mb-4">Vinimex alta cobertura.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold-primary font-bold text-xl">$750.00</span>
+                        <button class="text-gray-400 hover:text-white"><i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="bg-gray-800 border border-gray-700 p-6 relative group card-hover category-electrico">
+                    <div class="absolute top-4 right-4 bg-gold-primary text-black text-xs font-bold px-2 py-1 rounded">IUSA</div>
+                    <div class="h-40 flex items-center justify-center mb-4 bg-gray-900 rounded p-4">
+                        <i class="fa-solid fa-bolt text-6xl text-gray-600 group-hover:text-gold-primary transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Cable THW #12</h3>
+                    <p class="text-gray-500 text-sm mb-4">Precio por metro.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold-primary font-bold text-xl">$14.50</span>
+                        <button class="text-gray-400 hover:text-white"><i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                 <!-- Item 7 -->
+                 <div class="bg-gray-800 border border-gray-700 p-6 relative group card-hover category-herramientas">
+                    <div class="absolute top-4 right-4 bg-gold-primary text-black text-xs font-bold px-2 py-1 rounded">TRUPER</div>
+                    <div class="h-40 flex items-center justify-center mb-4 bg-gray-900 rounded p-4">
+                        <i class="fa-solid fa-toolbox text-6xl text-gray-600 group-hover:text-gold-primary transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Carretilla 4.5 ft³</h3>
+                    <p class="text-gray-500 text-sm mb-4">Uso rudo, llanta neumática.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold-primary font-bold text-xl">$1,150.00</span>
+                        <button class="text-gray-400 hover:text-white"><i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                 <!-- Item 8: Secret -->
+                 <div class="bg-gray-800/50 border border-gold-primary/30 border-dashed p-6 relative group card-hover category-herramientas">
+                    <div class="absolute top-4 right-4 text-gold-primary text-xs font-bold px-2 py-1 rounded border border-gold-primary">PASILLO 7B</div>
+                    <div class="h-40 flex items-center justify-center mb-4 bg-gray-900 rounded p-4">
+                        <i class="fa-solid fa-gem text-6xl text-gold-primary/50 group-hover:text-gold-primary transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Piezas Especiales</h3>
+                    <p class="text-gray-500 text-sm mb-4">Tornillos milimétricos, latón antiguo.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400 font-bold text-sm italic">Pregunta a Chuy</span>
+                        <button class="text-gray-400 hover:text-white"><i class="fa-solid fa-question"></i></button>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-16 text-center">
+                <p class="text-gray-400 mb-4">¿Necesitas cotización de mayoreo?</p>
+                <a href="mailto:ventas@eltornillodeoro.com" class="text-gold-primary border-b border-gold-primary hover:text-white hover:border-white transition-colors pb-1">Escribe a ventas@eltornillodeoro.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-24 bg-rich-black relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gray-900 skew-x-12 transform translate-x-20 z-0"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="mb-16">
+                <span class="text-gold-primary uppercase text-xs tracking-[0.3em]">Soluciones Integrales</span>
+                <h2 class="text-4xl font-serif font-bold text-white mt-2">Servicios para Profesionales</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="bg-gray-800 p-8 border-l-4 border-gold-primary hover:bg-gray-700 transition-colors">
+                    <i class="fa-solid fa-palette text-3xl text-gold-primary mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Igualación de Pintura</h3>
+                    <p class="text-gray-400 text-sm">Trae tu muestra (tela, foto, objeto) y la igualamos al instante. Gratis en la compra de 1 Galón o más.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-gray-800 p-8 border-l-4 border-gray-500 hover:bg-gray-700 transition-colors">
+                    <i class="fa-solid fa-truck-fast text-3xl text-white mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Entrega a Domicilio</h3>
+                    <p class="text-gray-400 text-sm">Llevamos tu material pesado (cemento, varilla). $100 en zona centro o <strong>Gratis</strong> > $5,000.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-gray-800 p-8 border-l-4 border-gold-primary hover:bg-gray-700 transition-colors">
+                    <i class="fa-solid fa-key text-3xl text-gold-primary mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Cerrajería Express</h3>
+                    <p class="text-gray-400 text-sm">Duplicados de llaves estándar y de auto (sin chip) al momento. Duplicado estándar: $30.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-gray-800 p-8 border-l-4 border-gray-500 hover:bg-gray-700 transition-colors">
+                    <i class="fa-solid fa-screwdriver-wrench text-3xl text-white mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Renta de Herramienta</h3>
+                    <p class="text-gray-400 text-sm">¿Solo la necesitas un día? Renta rotomartillos, bailarinas y generadores con tu INE.</p>
+                </div>
+            </div>
+            
+            <!-- Mostrador Promise -->
+            <div class="mt-12 bg-gold-primary/10 border border-gold-primary/30 p-6 rounded text-center max-w-2xl mx-auto">
+                <h4 class="text-gold-primary font-bold uppercase tracking-widest text-sm mb-2">El "Acuerdo del Mostrador"</h4>
+                <p class="text-gray-300 italic">"Si llegas al mostrador principal y no podemos atenderte en menos de 5 minutos, te ofrecemos un 5% de descuento en tu compra."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Banner -->
+    <div class="bg-gold-primary py-8">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-rich-black">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <h3 class="text-2xl font-serif font-bold">¿Necesitas asesoría experta?</h3>
+                <p class="font-semibold">Nuestro personal no solo vende, sabe.</p>
+            </div>
+            <div class="flex gap-4">
+                <a href="tel:8711234567" class="bg-rich-black text-white px-6 py-3 font-bold uppercase tracking-wider hover:bg-gray-800 transition-colors">
+                    <i class="fa-solid fa-phone mr-2"></i> 871-123-4567
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer / Contact -->
+    <footer id="contacto" class="bg-gray-900 pt-20 pb-10 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-screw text-gold-primary text-2xl"></i>
+                        <span class="text-xl font-serif font-bold text-white">EL TORNILLO DE ORO</span>
+                    </div>
+                    <p class="text-gray-500 mb-6">La ferretería de confianza número uno de la región. 40 años construyendo contigo.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-gold-primary text-xl"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-gold-primary text-xl"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-gold-primary text-xl"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Ubicación</h4>
+                    <p class="text-gray-400 mb-4">
+                        <i class="fa-solid fa-location-dot text-gold-primary mr-2"></i>
+                        Av. de los Insurgentes #45,<br>
+                        Colonia Centro, C.P. 27000,<br>
+                        Torreón, Coahuila.
+                    </p>
+                    <p class="text-xs text-gray-500 mt-2">
+                        Edificio terracota frente a "Plaza del Sol".<br>
+                        Entrada de carga por Callejón de la Llave.
+                    </p>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Contacto</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><span class="text-gold-primary">Mostrador:</span> 871-123-4567</li>
+                        <li><span class="text-gold-primary">Mayoreo:</span> 871-123-4568</li>
+                        <li class="text-sm pt-2">ventas@eltornillodeoro.com</li>
+                        <li class="text-sm">soporte@eltornillodeoro.com</li>
+                        <li class="text-sm">admin@eltornillodeoro.com</li>
+                    </ul>
+                </div>
+
+                <!-- Hours -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Horarios</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex justify-between">
+                            <span>Lun - Vie</span>
+                            <span class="text-white">8:00 - 19:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sábado</span>
+                            <span class="text-white">9:00 - 15:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Domingo</span>
+                            <span class="text-red-500">Cerrado</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 border-t border-gray-800 pt-4">
+                        <p class="text-xs text-gray-500">¿Tienes un proyecto grande?<br>Agenda cita para asesoría.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+                <p>&copy; 2024 Ferretería "El Tornillo de Oro", S.A. de C.V. Todos los derechos reservados.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gray-400">Política de Privacidad</a>
+                    <a href="#" class="hover:text-gray-400">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.add('bg-rich-black');
+                navbar.classList.remove('bg-rich-black/95');
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.remove('bg-rich-black');
+                navbar.classList.add('bg-rich-black/95');
+            }
+        });
+
+        // Category Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const products = document.querySelectorAll('[class*="category-"]');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-gold-primary', 'text-rich-black', 'font-bold');
+                    b.classList.add('border', 'border-gray-600', 'text-gray-300');
+                });
+                // Add active to clicked
+                btn.classList.remove('border', 'border-gray-600', 'text-gray-300');
+                btn.classList.add('bg-gold-primary', 'text-rich-black', 'font-bold');
+
+                const filter = btn.getAttribute('data-filter');
+
+                products.forEach(product => {
+                    if (filter === 'all') {
+                        product.style.display = 'block';
+                        product.classList.add('animate-fade-in');
+                    } else {
+                        if (product.classList.contains(`category-${filter}`)) {
+                            product.style.display = 'block';
+                        } else {
+                            product.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Simple interaction for buttons
+        const cartButtons = document.querySelectorAll('.fa-cart-plus');
+        cartButtons.forEach(btn => {
+            btn.parentElement.addEventListener('click', function() {
+                // Visual feedback simulation
+                const originalHTML = this.innerHTML;
+                this.innerHTML = '<i class="fa-solid fa-check text-gold-primary"></i>';
+                setTimeout(() => {
+                    this.innerHTML = originalHTML;
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
